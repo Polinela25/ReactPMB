@@ -1,10 +1,8 @@
 package com.pmb.pmb.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class DtMhsPilihanDTO {
     private Integer idpilihan;
     private String idprodiy;

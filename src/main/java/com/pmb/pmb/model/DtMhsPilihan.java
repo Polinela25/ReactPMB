@@ -13,6 +13,7 @@ import lombok.Setter;
 public class DtMhsPilihan {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idpilihan")
     private Integer idpilihan;
 
@@ -20,23 +21,23 @@ public class DtMhsPilihan {
     private Integer idcmhsbaru;
 
     private String idprodiy;
-    private Integer idprodi;
+
     private Integer pilihanke;
 
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    private Integer idbiaya;
+    private Double spipendaftar;
 
-    @Enumerated(EnumType.STRING)
-    private PublishStatus publish;
+    public enum Status { PENDING, ACCEPTED, REJECTED }
 
-    private Integer spipendaftar;
-
-    @Enumerated(EnumType.STRING)
-    private KelasStatus kelas;
-
-    public enum Status { ZERO, ONE, TWO }
-    public enum PublishStatus { T, F }
-    public enum KelasStatus { R, I }
+    // All-args constructor
+    public DtMhsPilihan(Integer idpilihan, Integer idcmhsbaru, String idprodiy, Integer pilihanke, Status status, Double spipendaftar) {
+        this.idpilihan = idpilihan;
+        this.idcmhsbaru = idcmhsbaru;
+        this.idprodiy = idprodiy;
+        this.pilihanke = pilihanke;
+        this.status = status;
+        this.spipendaftar = spipendaftar;
+    }
 }

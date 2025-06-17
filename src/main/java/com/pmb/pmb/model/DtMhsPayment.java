@@ -15,25 +15,33 @@ import java.util.Date;
 public class DtMhsPayment {
 
     @Id
-    @Column(name = "id_payment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
-
-    @Column(name = "idcmhsbaru")
-    private Integer idcmhsbaru;
 
     @Column(name = "trx_id")
     private String trxId;
 
-    @Column(name = "amount")
+    @Column(name = "idcmhsbaru")
+    private Integer idcmhsbaru;
+
     private Double amount;
 
-    @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @Column(name = "last_update")
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastUpdate;
 
-    public enum Status { PENDING, SUCCESS, FAILED }
+    public enum Status { PENDING, SUCCESS, FAILED, CANCELLED }
+
+    // All-args constructor
+    public DtMhsPayment(Integer id, String trxId, Integer idcmhsbaru, Double amount, Status status, Date lastUpdate) {
+        this.id = id;
+        this.trxId = trxId;
+        this.idcmhsbaru = idcmhsbaru;
+        this.amount = amount;
+        this.status = status;
+        this.lastUpdate = lastUpdate;
+    }
 }

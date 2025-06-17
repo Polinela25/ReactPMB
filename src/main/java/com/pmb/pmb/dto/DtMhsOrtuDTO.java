@@ -1,5 +1,10 @@
 package com.pmb.pmb.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class DtMhsOrtuDTO {
     private Integer idortu;
     private String nama;
@@ -13,25 +18,5 @@ public class DtMhsOrtuDTO {
         this.tgllahir = tgllahir;
         this.email = email;
         this.notelepon1 = notelepon1;
-    }
-
-    public Integer getIdortu() {
-        return idortu;
-    }
-
-    public String getNama() {
-        return nama;
-    }
-
-    public String getTgllahir() {
-        return tgllahir;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getNotelepon1() {
-        return notelepon1;
     }
 }

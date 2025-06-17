@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "dt_mhs")
 @Getter
@@ -13,25 +15,41 @@ import lombok.Setter;
 public class DtMhs {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
     @Column(name = "idcmhsbaru")
     private Integer idcmhsbaru;
 
-    private String nopendaftaran;
     private String nama;
-    private String sex;
+
+    private String nopendaftaran;
+
+    @Enumerated(EnumType.STRING)
+    private Sex sex;
+
     private String tmplahir;
-    private String tgllahir;
-    private String agama;
-    private String statusnikah;
-    private String anakke;
-    private String jmlsaudara;
+
+    @Temporal(TemporalType.DATE)
+    private Date tgllahir;
 
     @Enumerated(EnumType.STRING)
     private BidikmisiStatus bidikmisi;
 
-    public enum BidikmisiStatus { ZERO, ONE, TWO }
+    public enum Sex { MALE, FEMALE }
+    public enum BidikmisiStatus { YES, NO }
 
+    // All-args constructor
+    public DtMhs(Integer id, Integer idcmhsbaru, String nama, String nopendaftaran, Sex sex, String tmplahir,
+                 Date tgllahir, BidikmisiStatus bidikmisi) {
+        this.id = id;
+        this.idcmhsbaru = idcmhsbaru;
+        this.nama = nama;
+        this.nopendaftaran = nopendaftaran;
+        this.sex = sex;
+        this.tmplahir = tmplahir;
+        this.tgllahir = tgllahir;
+        this.bidikmisi = bidikmisi;
+    }
 }

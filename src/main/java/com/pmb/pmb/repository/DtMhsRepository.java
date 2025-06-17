@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface DtMhsRepository extends JpaRepository<DtMhs, Integer> {
     Page<DtMhs> findByIdcmhsbaru(Integer idcmhsbaru, Pageable pageable);
-    List<DtMhs> findByNamaContainingIgnoreCase(String nama);
     Page<DtMhs> findByNamaContainingIgnoreCase(String nama, Pageable pageable);
     List<DtMhs> findByNopendaftaran(String nopendaftaran);
     Page<DtMhs> findByBidikmisi(DtMhs.BidikmisiStatus bidikmisi, Pageable pageable);

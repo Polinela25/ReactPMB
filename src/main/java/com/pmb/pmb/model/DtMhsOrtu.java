@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "dt_mhs_ortu")
 @Getter
@@ -13,43 +15,29 @@ import lombok.Setter;
 public class DtMhsOrtu {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idortu")
     private Integer idortu;
-
-    @Column(name = "idjnortu")
-    private Integer idjnortu;
 
     @Column(name = "idcmhsbaru")
     private Integer idcmhsbaru;
 
     private String nama;
-    private String tmplahir;
-    private String tgllahir;
-    private Integer idpekerjaan;
-    private Integer penghasilan_tambahan;
-    private String alamatkerja;
-    private Integer idpenghasilan;
 
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    @Temporal(TemporalType.DATE)
+    private Date tgllahir;
 
-    private String namalingkungan;
-    private String kdkabupatenkota;
-    private String kdprovinsi;
-    private String kodepos;
-    private String notelepon1;
-    private String notelepon2;
     private String email;
 
-    @Enumerated(EnumType.STRING)
-    private PublishStatus publish;
+    private String notelepon1;
 
-    private String nik;
-
-    @Enumerated(EnumType.STRING)
-    private SdataStatus sdata;
-
-    public enum Status { ZERO, ONE }
-    public enum PublishStatus { T, F }
-    public enum SdataStatus { ZERO, ONE, TWO, THREE }
+    // All-args constructor
+    public DtMhsOrtu(Integer idortu, Integer idcmhsbaru, String nama, Date tgllahir, String email, String notelepon1) {
+        this.idortu = idortu;
+        this.idcmhsbaru = idcmhsbaru;
+        this.nama = nama;
+        this.tgllahir = tgllahir;
+        this.email = email;
+        this.notelepon1 = notelepon1;
+    }
 }

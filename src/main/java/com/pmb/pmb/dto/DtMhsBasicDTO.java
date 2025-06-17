@@ -1,5 +1,10 @@
 package com.pmb.pmb.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class DtMhsBasicDTO {
     private Integer id;
     private String nama;
@@ -15,29 +20,5 @@ public class DtMhsBasicDTO {
         this.sex = sex;
         this.tmplahir = tmplahir;
         this.tgllahir = tgllahir;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public String getNama() {
-        return nama;
-    }
-
-    public String getNopendaftaran() {
-        return nopendaftaran;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public String getTmplahir() {
-        return tmplahir;
-    }
-
-    public String getTgllahir() {
-        return tgllahir;
     }
 }

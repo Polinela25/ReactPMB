@@ -60,7 +60,7 @@ public class DtMhsPilihanController {
                     @ApiResponse(responseCode = "500", description = "Internal server error",
                             content = @Content(schema = @Schema(implementation = ErrorResponseDTO.class)))
             })
-    public ResponseEntity<Map<String, Object>> getAllData(
+    public ResponseEntity<?> getAllData(
             @Parameter(description = "Page number (0-based)", example = "0") @RequestParam(defaultValue = "0") int page,
             @Parameter(description = "Number of items per page", example = "10") @RequestParam(defaultValue = "10") int size,
             @Parameter(description = "Sort field and direction (e.g., 'idpilihan,asc')", example = "idpilihan,asc") @RequestParam(defaultValue = "idpilihan,asc") String[] sort) {
@@ -80,8 +80,8 @@ public class DtMhsPilihanController {
 
             Sort.Order order = new Sort.Order(
                     sort[1].equalsIgnoreCase("desc") ? Sort.Direction.DESC : Sort.Direction.ASC, sort[0]);
-            Pageable pageable = PageRequest.of(page, size, Sort.by(order));
-            Page<DtMhsPilihan> pageData = repository.findAll(pageable);
+            Pageable paging = PageRequest.of(page, size, Sort.by(order));
+            Page<DtMhsPilihan> pageData = repository.findAll(paging);
 
             if (pageData.isEmpty() && page > 0) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponseDTO(
@@ -123,7 +123,7 @@ public class DtMhsPilihanController {
                     @ApiResponse(responseCode = "500", description = "Internal server error",
                             content = @Content(schema = @Schema(implementation = ErrorResponseDTO.class)))
             })
-    public ResponseEntity<List<DtMhsPilihan>> getByIdCmhsBaru(
+    public ResponseEntity<?> getByIdCmhsBaru(
             @Parameter(description = "Student ID", example = "101") @RequestParam Integer idcmhsbaru,
             @Parameter(description = "Page number (0-based)", example = "0") @RequestParam(defaultValue = "0") int page,
             @Parameter(description = "Number of items per page", example = "10") @RequestParam(defaultValue = "10") int size) {
@@ -141,8 +141,8 @@ public class DtMhsPilihanController {
 
             checkAuthorization("fetch by idcmhsbaru");
 
-            Pageable pageable = PageRequest.of(page, size);
-            Page<DtMhsPilihan> result = repository.findByIdcmhsbaru(idcmhsbaru, pageable);
+            Pageable paging = PageRequest.of(page, size);
+            Page<DtMhsPilihan> result = repository.findByIdcmhsbaru(idcmhsbaru, paging);
 
             if (result.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponseDTO(
@@ -178,7 +178,7 @@ public class DtMhsPilihanController {
                     @ApiResponse(responseCode = "500", description = "Internal server error",
                             content = @Content(schema = @Schema(implementation = ErrorResponseDTO.class)))
             })
-    public ResponseEntity<List<DtMhsPilihan>> getByIdProdiy(
+    public ResponseEntity<?> getByIdProdiy(
             @Parameter(description = "Program ID", example = "PROG001") @RequestParam String idprodiy,
             @Parameter(description = "Page number (0-based)", example = "0") @RequestParam(defaultValue = "0") int page,
             @Parameter(description = "Number of items per page", example = "10") @RequestParam(defaultValue = "10") int size) {
@@ -196,8 +196,8 @@ public class DtMhsPilihanController {
 
             checkAuthorization("fetch by idprodiy");
 
-            Pageable pageable = PageRequest.of(page, size);
-            Page<DtMhsPilihan> result = repository.findByIdprodiy(idprodiy, pageable);
+            Pageable paging = PageRequest.of(page, size);
+            Page<DtMhsPilihan> result = repository.findByIdprodiy(idprodiy, paging);
 
             if (result.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponseDTO(
@@ -233,7 +233,7 @@ public class DtMhsPilihanController {
                     @ApiResponse(responseCode = "500", description = "Internal server error",
                             content = @Content(schema = @Schema(implementation = ErrorResponseDTO.class)))
             })
-    public ResponseEntity<List<DtMhsPilihan>> getByStatus(
+    public ResponseEntity<?> getByStatus(
             @Parameter(description = "Status (e.g., PENDING, ACCEPTED, REJECTED)", example = "PENDING") @RequestParam String status,
             @Parameter(description = "Page number (0-based)", example = "0") @RequestParam(defaultValue = "0") int page,
             @Parameter(description = "Number of items per page", example = "10") @RequestParam(defaultValue = "10") int size) {
@@ -259,8 +259,8 @@ public class DtMhsPilihanController {
 
             checkAuthorization("fetch by status");
 
-            Pageable pageable = PageRequest.of(page, size);
-            Page<DtMhsPilihan> result = repository.findByStatus(statusEnum, pageable);
+            Pageable paging = PageRequest.of(page, size);
+            Page<DtMhsPilihan> result = repository.findByStatus(statusEnum, paging);
 
             if (result.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponseDTO(
@@ -295,7 +295,7 @@ public class DtMhsPilihanController {
                     @ApiResponse(responseCode = "500", description = "Internal server error",
                             content = @Content(schema = @Schema(implementation = ErrorResponseDTO.class)))
             })
-    public ResponseEntity<DtMhsPilihanDTO> getBasicInfoById(
+    public ResponseEntity<?> getBasicInfoById(
             @Parameter(description = "Choice ID", example = "1") @PathVariable Integer idpilihan) {
         try {
             if (idpilihan == null || idpilihan <= 0) {

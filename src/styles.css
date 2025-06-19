@@ -1,0 +1,191 @@
+/* Import font Inter dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f0f4f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  background-color: #004d40;
+  padding: 1rem 2rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Buttons */
+.nav button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-weight: 600;
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 6px;
+}
+
+.nav button.active,
+.nav button:hover {
+  background-color: #00796b;
+}
+
+/* Main Content */
+.main-content {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  min-height: 80vh;
+}
+
+/* Footer */
+.footer {
+  background-color: #004d40;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem;
+}
+
+/* Typography */
+h1, h2, h3 {
+  color: #004d40;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Form Styling */
+form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+form input {
+  padding: 0.6rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+form input:focus {
+  border-color: #0288d1;
+  box-shadow: 0 0 0 3px rgba(2, 136, 209, 0.2);
+  outline: none;
+}
+
+/* Button */
+.btn-submit {
+  background-color: #0288d1;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btn-submit:hover {
+  background-color: #01579b;
+}
+
+/* Error Message */
+.error {
+  color: #e53935;
+  background-color: #ffebee;
+  border-left: 4px solid #e53935;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+/* Info Section */
+.info-section {
+  margin-top: 2rem;
+  background-color: #e0f7fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 77, 64, 0.05);
+}
+
+.info-section ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.info-section a {
+  color: #00796b;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.info-section a:hover {
+  text-decoration: underline;
+  color: #004d40;
+}
+
+/* Address */
+address {
+  font-style: normal;
+  margin-top: 2rem;
+  line-height: 1.7;
+  background-color: #f1f8f9;
+  padding: 1.2rem;
+  border-left: 4px solid #0288d1;
+  border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .main-content, .container {
+    padding: 1rem;
+  }
+
+  .nav button {
+    display: block;
+    margin: 0.5rem 0;
+  }
+}

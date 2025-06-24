@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getAllMahasiswa } from "../../api/cmhsApi";
-import MahasiswaTable from "../../components/PMB/MahasiswaTable";
+import { getAllMahasiswa } from "../../../api/cmhsApi";
+import MahasiswaTable from "../../../components/PMB/admin/MahasiswaTable";
 import * as XLSX from "xlsx";
 
 export default function MahasiswaPage() {

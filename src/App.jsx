@@ -6,7 +6,7 @@ import Registrasi from "./pages/PMB/Registrasi";
 import SpoPmbBeranda from "./pages/PMB/SpoPmbBeranda";
 import SpoPmbLogin from "./pages/PMB/SpoPmbLogin";
 import RegistrasiSpoPmb from "./pages/PMB/RegistrasiSpoPmb";
-import MahasiswaPage from "./pages/PMB/MahasiswaPage";
+import MahasiswaPage from "./pages/PMB/admin/MahasiswaPage";
 
 import Sidebar from "./components/PMB/Header";
 import Footer from "./components/PMB/Footer";

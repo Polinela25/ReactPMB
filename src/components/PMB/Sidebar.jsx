@@ -1,39 +1,71 @@
-import { Link, useLocation } from "react-router-dom";
-import { Home, UserPlus, BookOpen, LogIn } from "lucide-react";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
-  const location = useLocation();
-
-  const menuItems = [
-    { path: "/", label: "Beranda", icon: <Home size={18} /> },
-    { path: "/registrasi", label: "Registrasi", icon: <UserPlus size={18} /> },
-    { path: "/spo-pmb", label: "SPO PMB", icon: <BookOpen size={18} /> },
-    { path: "/spo-pmb/login", label: "Login", icon: <LogIn size={18} /> },
-    { path: "/MahasiswaTable", label: "Admin", icon: <LogIn size={18} /> },
-  ];
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <aside className="fixed top-0 left-0 h-full w-64 bg-blue-700 text-white shadow-lg z-40 hidden md:block">
-      <div className="p-6 text-center border-b border-blue-600">
-        <h1 className="text-2xl font-bold tracking-wider">PMB POLINELA</h1>
-      </div>
-
-      <nav className="mt-6 space-y-2 px-4">
-        {menuItems.map((item) => (
-          <Link
-            key={item.path}
-            to={item.path}
-            className={`flex items-center px-4 py-2 rounded-md transition-all ${
-              location.pathname === item.path
-                ? "bg-blue-600 font-semibold"
-                : "hover:bg-blue-600"
-            }`}
-          >
-            <span className="mr-3">{item.icon}</span>
-            {item.label}
-          </Link>
-        ))}
+    <div className={`fixed md:static w-64 bg-white dark:bg-gray-800 h-full shadow-lg transform ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 transition-transform duration-300 z-50`}>
+      <button
+        className="md:hidden p-4"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? "Tutup Sidebar" : "Buka Sidebar"}
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <nav className="p-4">
+        <NavLink
+          to="/"
+          end
+          className={({ isActive }) => `block py-2 text-sm ${isActive ? "text-teal-600 font-bold" : "text-gray-700 dark:text-gray-300"} hover:text-teal-600 transition-colors`}
+        >
+          Beranda
+        </NavLink>
+        <NavLink
+          to="/registrasi"
+          className={({ isActive }) => `block py-2 text-sm ${isActive ? "text-teal-600 font-bold" : "text-gray-700 dark:text-gray-300"} hover:text-teal-600 transition-colors`}
+        >
+          Registrasi
+        </NavLink>
+        <NavLink
+          to="/spo-pmb"
+          className={({ isActive }) => `block py-2 text-sm ${isActive ? "text-teal-600 font-bold" : "text-gray-700 dark:text-gray-300"} hover:text-teal-600 transition-colors`}
+        >
+          SPO PMB
+        </NavLink>
+        <NavLink
+          to="/spo-pmb/login"
+          className={({ isActive }) => `block py-2 text-sm ${isActive ? "text-teal-600 font-bold" : "text-gray-700 dark:text-gray-300"} hover:text-teal-600 transition-colors`}
+        >
+          Login SPO PMB
+        </NavLink>
+        <NavLink
+          to="/registrasi-spo-pmb"
+          className={({ isActive }) => `block py-2 text-sm ${isActive ? "text-teal-600 font-bold" : "text-gray-700 dark:text-gray-300"} hover:text-teal-600 transition-colors`}
+        >
+          Registrasi SPO PMB
+        </NavLink>
+        <NavLink
+          to="/mahasiswa"
+          className={({ isActive }) => `block py-2 text-sm ${isActive ? "text-teal-600 font-bold" : "text-gray-700 dark:text-gray-300"} hover:text-teal-600 transition-colors`}
+        >
+          Data Mahasiswa
+        </NavLink>
+        <NavLink
+          to="/mahasiswa/input"
+          className={({ isActive }) => `block py-2 text-sm ${isActive ? "text-teal-600 font-bold" : "text-gray-700 dark:text-gray-300"} hover:text-teal-600 transition-colors`}
+        >
+          Input Mahasiswa
+        </NavLink>
+        <NavLink
+          to="/mahasiswa/list"
+          className={({ isActive }) => `block py-2 text-sm ${isActive ? "text-teal-600 font-bold" : "text-gray-700 dark:text-gray-300"} hover:text-teal-600 transition-colors`}
+        >
+          List Mahasiswa
+        </NavLink>
       </nav>
-    </aside>
+    </div>
   );
 }

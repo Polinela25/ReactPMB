@@ -1,34 +1,44 @@
 import React from "react";
+import { GraduationCap, Wallet, FileCheck2, School2, Globe2, Mail, Phone } from "lucide-react";
 
 export default function Beranda() {
   return (
     <section className="container mx-auto p-6 max-w-4xl text-gray-800">
-      <div className="bg-blue-50 p-8 rounded-2xl shadow-md mb-8">
-        <h1 className="text-3xl font-bold text-blue-600 mb-4">
-          Selamat Datang Calon Mahasiswa Baru!
+      <div className="bg-gradient-to-br from-blue-100 to-blue-50 p-8 rounded-2xl shadow-lg mb-10 border border-blue-200">
+        <h1 className="text-3xl font-bold text-blue-700 mb-4">
+          🎓 Selamat Datang Calon Mahasiswa Baru!
         </h1>
-        <p className="mb-4 text-lg">
-          <span className="font-semibold">Registrasi Daftar Ulang</span> <br />
-          Sebuah mekanisme validasi data dan registrasi daftar ulang calon mahasiswa baru secara online menggunakan layanan sistem informasi berbasis web. Mahasiswa baru yang dimaksud adalah mahasiswa yang telah mengikuti dan menyelesaikan tahap pendaftaran dan seleksi pada masing-masing jalur penerimaan, dan telah dinyatakan lulus dan diterima secara resmi sebagai Calon Mahasiswa Baru Politeknik Negeri Lampung.
+        <p className="mb-4 text-lg leading-relaxed">
+          <span className="font-semibold">Registrasi Daftar Ulang</span><br />
+          Validasi data dan registrasi daftar ulang calon mahasiswa baru secara online. Mahasiswa yang lulus seleksi dan diterima resmi sebagai mahasiswa Politeknik Negeri Lampung wajib mengikuti tahapan berikut:
         </p>
 
-        <ol className="list-decimal list-inside space-y-2 text-base">
-          <li>
-            <strong>Registrasi Data Induk Mahasiswa</strong><br />
-            Mekanisme registrasi data induk mahasiswa baru secara online.
+        <ul className="space-y-4 mt-4 text-base">
+          <li className="flex items-start gap-3">
+            <GraduationCap className="text-blue-500" /> 
+            <div>
+              <strong>Registrasi Data Induk Mahasiswa</strong><br />
+              Registrasi data induk mahasiswa baru secara online.
+            </div>
           </li>
-          <li>
-            <strong>Registrasi Pembayaran UKT Mahasiswa</strong><br />
-            Mekanisme registrasi pembayaran UKT mahasiswa.
+          <li className="flex items-start gap-3">
+            <Wallet className="text-blue-500" />
+            <div>
+              <strong>Registrasi Pembayaran UKT</strong><br />
+              Proses pembayaran Uang Kuliah Tunggal (UKT).
+            </div>
           </li>
-          <li>
-            <strong>Finalisasi dan Pemberkasan Daftar Ulang</strong><br />
-            Mekanisme finalisasi dan pemberkasan data fisik.
+          <li className="flex items-start gap-3">
+            <FileCheck2 className="text-blue-500" />
+            <div>
+              <strong>Finalisasi dan Pemberkasan</strong><br />
+              Pengumpulan dokumen fisik untuk verifikasi.
+            </div>
           </li>
-        </ol>
+        </ul>
 
-        <p className="mt-6 text-lg font-medium">
-          Selamat Datang Calon Mahasiswa Baru Politeknik Negeri Lampung dan selamat bergabung menjadi keluarga besar sivitas akademika Politeknik Negeri Lampung.
+        <p className="mt-6 text-lg font-medium text-blue-700">
+          Selamat bergabung dalam keluarga besar Politeknik Negeri Lampung!
         </p>
       </div>
 
@@ -36,41 +46,31 @@ export default function Beranda() {
         <h2 className="text-2xl font-bold text-blue-600 mb-4">
           Calon Mahasiswa Baru
         </h2>
-        <p className="mb-4">
+        <p className="mb-3">
           <strong>Pendaftar Beasiswa KIP-KULIAH</strong><br />
-          Calon mahasiswa baru yang lulus dengan status pengusul beasiswa KIP Kuliah untuk jenjang Pendidikan Diploma III (D3) dan Diploma IV (D4)/Sarjana Terapan (S1.Tr) Politeknik Negeri Lampung tahun 2025 agar memperhatikan prosedur registrasi keuangan (pembayaran pendidikan UKT). Informasi tentang pembayaran UKT dilampirkan pada laman user calon mahasiswa baru.
+          Perhatikan prosedur pembayaran UKT sesuai status beasiswa.
         </p>
-        <p>
+        <p className="mb-3">
           <strong>SIDU V 4.8</strong><br />
-          Jaraka (J) SIDU adalah layanan jejaring akademik yang digunakan oleh Politeknik Negeri Lampung untuk layanan sistem informasi validasi dan registrasi daftar ulang calon mahasiswa baru online.
-          <br />
-          Website:{" "}
-          <a
-            href="https://sidu.pmb.polinela.ac.id"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:underline"
-          >
-            sidu.pmb.polinela.ac.id
-          </a>
+          Platform registrasi online resmi PMB Polinela.<br />
+          Website: <a href="https://sidu.pmb.polinela.ac.id" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">sidu.pmb.polinela.ac.id</a>
         </p>
       </div>
 
-      <div className="bg-blue-100 p-6 rounded-xl shadow-inner">
+      <div className="bg-blue-50 p-6 rounded-xl shadow-inner border-l-4 border-blue-500">
         <address className="not-italic text-sm leading-relaxed text-gray-700">
-          <strong className="text-blue-700">Politeknik Negeri Lampung</strong><br />
+          <School2 className="inline mr-2 text-blue-700" /> <strong className="text-blue-700">Politeknik Negeri Lampung</strong><br />
           Jalan Soekarno-Hatta No.10, Rajabasa<br />
-          Bandar Lampung, Lampung, Indonesia. 35141.<br />
-          Telp: 0721 703 995<br />
-          Email: <a href="mailto:humas@polinela.ac.id" className="text-blue-500 hover:underline">humas@polinela.ac.id</a><br />
-          Website: <a href="http://www.polinela.ac.id" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">www.polinela.ac.id</a><br /><br />
+          Bandar Lampung, Indonesia 35141<br />
+          <Phone className="inline mr-2 text-blue-500" /> Telp: 0721 703 995<br />
+          <Mail className="inline mr-2 text-blue-500" /> Email: <a href="mailto:humas@polinela.ac.id" className="text-blue-500 hover:underline">humas@polinela.ac.id</a><br />
+          <Globe2 className="inline mr-2 text-blue-500" /> Website: <a href="http://www.polinela.ac.id" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">www.polinela.ac.id</a><br /><br />
 
           <strong className="text-blue-700">Panitia PMB</strong><br />
-          Sekretariat PMB, Lantai 1, Gedung A<br />
-          Kampus Utama Politeknik Negeri Lampung.<br />
+          Sekretariat PMB, Gedung A Lantai 1<br />
           Telp: 0721 703 995<br />
           Email: <a href="mailto:pmb@polinela.ac.id" className="text-blue-500 hover:underline">pmb@polinela.ac.id</a><br />
-          Website: <a href="http://pmb.polinela.ac.id" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">pmb.polinela.ac.id</a>
+          Website: <a href="http://pmb.polinela.ac.id" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">pmb.polinela.ac.id</a>
         </address>
       </div>
     </section>
